@@ -5,14 +5,24 @@ Little Girl and Game
 #define int int64_t
 using namespace std;
 set<int> st;
-map<int, int> mp;
+map<char, int> mp;
 list<int> ls;
 vector<int> vec;
 int maxi = INT_MIN;
 int mini = INT_MAX;
 int32_t main()
 {
-    for (int i = 1; i <= mini; i *= 2)
-        cout << i << endl;
+    string str;
+    int k = 0;
+    cin >> str;
+    for (int i = 0; i < str.size(); i++)
+        mp[str[i]]++;
+    for (auto i : mp)
+        if (i.second % 2 == 1)
+            k++;
+    if (k == 0 || k % 2 == 1)
+        cout << "First";
+    else
+        cout << "Second";
     return 0;
 }

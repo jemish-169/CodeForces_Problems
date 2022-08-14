@@ -2,7 +2,6 @@
 Sail
 */
 #include <bits/stdc++.h>
-#define int int64_t
 using namespace std;
 set<int> st;
 map<int, int> mp;
@@ -13,16 +12,15 @@ int mini = INT_MAX;
 int32_t main()
 {
     int cases = 1;
-    int i(0), t, sx, sy, ex, ey;
+    int t, sx, sy, ex, ey;
     string s;
     cin >> t >> sx >> sy >> ex >> ey >> s;
     char c, d;
-    for (int i = 0; i < s.length(); i++)
+    for (int i = 0; i < t; i++)
     {
-        cout << i;
         if (sx == ex && sy == ey)
         {
-            cout << i + 1;
+            cout << i;
             return 0;
         }
 
@@ -42,14 +40,25 @@ int32_t main()
 
         if (s[i] == c)
         {
-            sx++;
-            break;
+            if (c == 'W')
+                sx--;
+            else
+                sx++;
+            continue;
         }
         if (s[i] == d)
         {
-            sy++;
-            break;
+            if (d == 'S')
+                sy--;
+            else
+                sy++;
+            continue;
         }
+    }
+    if (sx == ex && sy == ey)
+    {
+        cout << t;
+        return 0;
     }
     cout << -1;
     return 0;
