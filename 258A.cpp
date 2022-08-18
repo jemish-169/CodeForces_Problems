@@ -19,6 +19,8 @@ int32_t main()
         string s, str = "";
         bool b = true;
         cin >> s;
+
+        
         // cout << s.length() << endl;
         for (int i = 0; i < s.length(); i++)
         {
