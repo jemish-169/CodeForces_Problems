@@ -1,28 +1,35 @@
-/*
-Array reordering
-*/
-#include <bits/stdc++.h>
-using namespace std;
+#include <cstdio>
+#include <vector>
+
+long gcd(long a, long b) { return (b == 0) ? a : gcd(b, a % b); }
+
 int main()
 {
-    int cases;
-    cin >> cases;
-    while (cases--)
+
+    long t;
+    scanf("%ld", &t);
+    while (t--)
     {
-        int n;
-        cin >> n;
-        int a[n], even(0), odd(0);
-        for (int i = 0; i < n; i++)
+        long n;
+        scanf("%ld", &n);
+        std::vector<long> v, w;
+        for (long p = 0; p < n; p++)
         {
-            cin >> a[i];
-            a[i] % 2 == 0 ? even++ : odd++;
+            long x;
+            scanf("%ld", &x);
+            x % 2 ? w.push_back(x) : v.push_back(x);
         }
-        int sum(0), x = even - odd;
-        for (int i = 1; i <= even; i++)
+
+        long cnt(0);
+        cnt += v.size() * (v.size() - 1) / 2 + v.size() * w.size();
+        for (long p = 0; p < w.size(); p++)
         {
-            sum += (n - i);
+            for (long q = p + 1; q < w.size(); q++)
+            {
+                cnt += (gcd(w[p], w[q]) > 1);
+            }
         }
-        cout << sum << endl;
+
+        printf("%ld\n", cnt);
     }
-    return 0;
 }
