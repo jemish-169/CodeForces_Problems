@@ -21,13 +21,13 @@ int32_t main()
     {
         int a, b, c;
         cin >> a >> b >> c;
-        int maxi = max(a, b), sum = a + b, ans = 1;
+        int maxi = max(a, b), sum = a + b, ans = 0;
         while (c >= maxi)
         {
+            int x = sum;
             sum += maxi;
-            maxi = sum;
+            maxi = x;
             ans++;
-            cout << maxi << " ";
         }
         cout << ans << endl;
     }
