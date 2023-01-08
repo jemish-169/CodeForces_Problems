@@ -2,6 +2,7 @@
 C+=
 */
 #include <bits/stdc++.h>
+#include <iostream>
 #define int int64_t
 using namespace std;
 set<int> st;
