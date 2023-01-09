@@ -1,37 +1,35 @@
-/*
-Winner
-*/
 #include <bits/stdc++.h>
-#define int int64_t
 using namespace std;
-set<int> st;
-list<int> ls;
-vector<int> vec;
-int maxi = INT_MIN;
-int mini = INT_MAX;
-int32_t main()
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    map<string, int> mp;
-    int n, cases = 1;
-    cin >> cases;
-    string s;
-    while (cases--)
+    long int i, j, n, m, x;
+    while (cin >> n)
     {
-        cin >> s >> n;
-        mp[s] += n;
-    }
-    int maxi = 0;
-    for (auto i : mp)
-    {
-        if (maxi < i.second)
+        string s[10000];
+        int a[10000];
+        map<string, long int> mp;
+        for (i = 0; i < n; i++)
         {
-            s = i.first;
-            maxi = i.second;
+            cin >> s[i] >> a[i];
+            mp[s[i]] += a[i];
         }
+        long int mx = 0;
+        for (i = 0; i < n; i++)
+        {
+            mx = max(mp[s[i]], mx);
+        }
+        map<string, long int> mp2;
+        string ans;
+        for (i = 0; i < n; i++)
+        {
+            mp2[s[i]] += a[i];
+            if (mp2[s[i]] >= mx && mp[s[i]] == mx)
+            {
+                ans = s[i];
+                break;
+            }
+        }
+        cout << ans << endl;
     }
-    cout << s << endl;
     return 0;
 }
