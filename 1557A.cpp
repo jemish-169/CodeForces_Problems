@@ -1,32 +1,38 @@
-/*
-Ezzat and Two Subsequences
-*/
+#define _CRT_SECURE_NO_WARNINGS
 #include <bits/stdc++.h>
 using namespace std;
-set<int> st;
-map<int, int> mp;
-list<int> ls;
-int maxi = INT_MIN;
-int mini = INT_MAX;
-int32_t main()
+void run()
 {
-    ios_base::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << fixed << setprecision(10);
+    cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+#else
+#endif
+}
 
-    int cases = 1;
-    cin >> cases;
-    while (cases--)
+int main()
+{
+    run();
+    cout << fixed << setprecision(10);
+    int t;
+    cin >> t;
+    while (t--)
     {
-        int x;
-        cin >> x;
-        vector<int> vec(x);
-        for (int i = 0; i < x; i++)
-            cin >> vec[i];
-        int maxi = *max_element(vec.begin(), vec.end());
-        long long sum = accumulate(vec.begin(), vec.end(), 0);
-        sum -= maxi;
-        cout << (1.0 * sum / (x - 1) + maxi) << endl;
+        int n;
+        cin >> n;
+        vector<int> v(n);
+        for (int i = 0; i < n; i++)
+            cin >> v[i];
+        int mx = v[0];
+        long long sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (v[i] > mx)
+                mx = v[i];
+            sum += v[i];
+        }
+        cout << 1.0 * (sum - mx) / (n - 1) + mx << endl;
     }
-    return 0;
 }
