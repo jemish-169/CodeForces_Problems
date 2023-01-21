@@ -26,7 +26,10 @@ int32_t main()
             cin >> t;
             st.insert(t);
         }
-        cout << (st.size() == x ? "YES" : "NO") << endl;
+        if (st.size() == x)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
     return 0;
 }
