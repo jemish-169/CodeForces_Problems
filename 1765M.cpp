@@ -19,6 +19,18 @@ int32_t main()
     cin >> cases;
     while (cases--)
     {
+        int x;
+        cin >> x;
+        int a = 1;
+        for (int i = 2; i * i <= x; ++i)
+        {
+            if (x % i == 0)
+            {
+                a = x / i;
+                break;
+            }
         }
+        cout << a << " " << x - a << endl;
+    }
     return 0;
 }
