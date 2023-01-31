@@ -20,21 +20,19 @@ int32_t main()
     {
         int x;
         cin >> x;
-        vector<int> vec(x), bec(x);
+        vector<int> vec(x);
 
         for (int i = 0; i < x; i++)
-        {
             cin >> vec[i];
-            bec[i] = vec[i];
-        }
-        sort(bec.begin(), bec.end(), greater<int>());
-        if (vec == bec)
+        sort(vec.begin(), vec.end());
+        if (vec[0] == vec[x - 1])
             cout << "NO" << endl;
         else
         {
             cout << "YES" << endl;
-            for (int i = 0; i < x; i++)
-                cout << bec[i] << " ";
+            cout << vec[x - 1] << " ";
+            for (int i = 0; i < x - 1; i++)
+                cout << vec[i] << " ";
             cout << "\n";
         }
     }
