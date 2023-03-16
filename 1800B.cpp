@@ -4,8 +4,6 @@ Count the number of pairs
 #include <bits/stdc++.h>
 #define int int64_t
 using namespace std;
-set<int> st;
-list<int> ls;
 vector<int> vec;
 int maxi = INT_MIN;
 int mini = INT_MAX;
