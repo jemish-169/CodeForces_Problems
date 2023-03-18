@@ -19,29 +19,32 @@ int32_t main()
     // cin >> cases;
     while (cases--)
     {
-        int n;
-        cin >> n;
-        string s;
-        cin >> s;
-        string s2 = s.substr(n, 2 * n);
-        string s1 = s.substr(0, n);
-        sort(s1.begin(), s1.end());
-        sort(s2.begin(), s2.end());
-        // cout << s1 << " .. " << s2 << endl;
-        int a = 0, b = 0;
-        for (int i = 0; i < n; i++)
+        size_t n;
+        string s, l, r;
+        cin >> n >> s;
+        l = s.substr(0, n);
+        r = s.substr(n, n);
+        sort(l.begin(), l.end());
+        sort(r.begin(), r.end());
+        // cout << l << " " << r << endl;
+        bool strictly_less(true), strictly_more(true);
+        for (size_t i = 0; i < n; ++i)
         {
-            // cout << s[i] << endl;
-            if (s[i] >= s[n + i])
-                a++;
-            else
-                b++;
+            if (l[i] >= r[i])
+            {
+                strictly_less = false;
+                break;
+            }
         }
-        cout << a << " " << b;
-        if (b == n || a == n)
-            cout << "YES" << endl;
-        else
-            cout << "NO" << endl;
+        for (size_t i = 0; i < n; ++i)
+        {
+            if (l[i] <= r[i])
+            {
+                strictly_more = false;
+                break;
+            }
+        }
+        cout << ((strictly_less || strictly_more) ? "YES" : "NO") << endl;
     }
     return 0;
 }
