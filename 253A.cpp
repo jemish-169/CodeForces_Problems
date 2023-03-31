@@ -16,17 +16,12 @@ int32_t main()
     cin.tie(NULL);
 
     int a, b;
-    cin >> b >> a;
-    while (a > 0 && b > 0)
-    {
-        if (b--)
-            cout << "B";
-        if (a--)
-            cout << "G";
-    }
-    while (--b >= 0)
+    cin >> a >> b;
+    while ((--a >= 0) && (--b >= 0))
+        cout << "BG";
+    while (a-- >= 0)
         cout << "B";
-    while (--a >= 0)
+    while (b-- >= 0)
         cout << "G";
     return 0;
 }
