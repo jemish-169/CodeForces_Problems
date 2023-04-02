@@ -21,17 +21,20 @@ int32_t main()
         int n;
         cin >> n;
         vector<int> a(n);
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i < n; i++)
             cin >> a[i];
-        for (int i = 1; i <= n; i++)
+        bool b = true;
+        for (int i = 0; i < n; i++)
         {
-            if (a[i] <= i)
+            if (a[i] <= i + 1)
             {
-                cout << ("YES");
+                cout << ("YES") << endl;
+                b = false;
                 break;
             }
         }
-        cout << ("NO");
+        if (b)
+            cout << ("NO") << endl;
     }
     return 0;
 }
