@@ -2,7 +2,6 @@
 Plus or minus
 */
 #include <bits/stdc++.h>
-#define int int64_t
 using namespace std;
 vector<int> vec;
 int maxi = INT_MIN;
