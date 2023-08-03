@@ -1,5 +1,5 @@
 /*
-Ban ban
+Ten words of wisdom
 */
 #include <bits/stdc++.h>
 #define int int64_t
@@ -21,21 +21,14 @@ int32_t main()
     {
         int n;
         cin >> n;
-        if (n == 1)
-            cout << 1 << "\n"
-                 << "1 2"
-                 << "\n";
-        else
+        int res(0), maxi = INT_MIN, x, y;
+        for (int i = 0; i < n; i++)
         {
-            cout << (n + 1) / 2 << "\n";
-            int r = 1, l = 3 * n;
-            for (int i = 1; i <= (n + 1) / 2; i++)
-            {
-                cout << r << " " << l << "\n";
-                r += 3;
-                l -= 3;
-            }
+            cin >> x >> y;
+            if (x <= 10 && y > maxi)
+                res = i, maxi = y;
         }
+        cout << ++res << "\n";
     }
     return 0;
 }
